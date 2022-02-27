@@ -4,3 +4,9 @@ git commit -m "initializing project"
 git branch -M main
 git remote add origin git@github.com:tamaltomal/product_validator.git
 git push -u origin main
+
+apt install python3.8-venv
+python3 -m venv .
+source ./bin/activate
+pip install "Django>=3.2,<3.3"
+django-admin startproject product_validator .
