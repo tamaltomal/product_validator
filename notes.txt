@@ -10,3 +10,4 @@ python3 -m venv .
 source ./bin/activate
 pip install "Django>=3.2,<3.3"
 django-admin startproject product_validator .
+python manage.py startapp
