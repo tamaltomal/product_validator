@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Sl.</th>
+                <th>UUID</th>
+                <th>Name</th>
+                <th>Brand</th>
+                <th>Catagory</th>
+                <th>Manufactured</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in products %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td><a href="{% url 'inventory:item' item.serial %}">{{ item.serial }}</a></td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.brand }}</td>
+                    <td>{{ item.catagory }}</td>
+                    <td>{{ item.manufactured }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
