@@ -7,6 +7,19 @@
     <title>Inventory</title>
 </head>
 <body>
+    <form action="{% url 'inventory:inventory' %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend><h2>Product Details</h2></legend>
+            {% if error_message %}<strong>{{ error_message }}</strong><br>{% endif %}
+            <input type="text" name="brand" placeholder="Brand Name">
+            <input type="text" name="catagory" placeholder="Catagory">
+            <input type="text" name="name" placeholder="Name">
+            <input type="date" name="manufactured">
+            <input type="number" name="quantity" placeholder="Quantity">
+        </fieldset>
+        <input type="submit" value="Create">
+    </form>
     <table>
         <thead>
             <tr>

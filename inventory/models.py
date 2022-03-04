@@ -7,7 +7,7 @@ class Product(models.Model):
     brand = models.CharField(max_length=50)
     catagory = models.CharField(max_length=50)
     name = models.CharField(max_length=50, default=None)
-    manufactured = models.DateTimeField()
+    manufactured = models.DateField()
 
     def __str__(self):
         return self.name

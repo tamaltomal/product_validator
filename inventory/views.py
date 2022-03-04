@@ -6,6 +6,15 @@ from .models import Product
 def inventory(request):
     products = Product.objects.all()
     context = {'products':products}
+    if request.method == 'POST':
+        try:
+            quantity = int(request.POST['quantity'])
+        except ValueError:
+            context['error_message'] = 'Please enter a valid quantity!'
+            return render(request, 'inventory/inventory.html', context)
+        for i in range(0, quantity):
+            new_product = Product(brand=request.POST['brand'], catagory=request.POST['catagory'], name=request.POST['name'], manufactured=request.POST['manufactured'])
+            new_product.save()
     return render(request, 'inventory/inventory.html', context)
 
 def item(request, serial):
